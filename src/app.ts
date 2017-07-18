@@ -15,6 +15,8 @@ import {
 } from '../lib/monzo/auth'
 import WindowManager from './window-manager'
 
+if (require('electron-squirrel-startup')) app.quit()
+
 const debug = Debug('app:app')
 const mainWindow = new WindowManager()
 

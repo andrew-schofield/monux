@@ -37,12 +37,14 @@
   "dependencies": {
     "common-tags": "^1.4.0",
     "d3": "^4.10.0",
+    "d3-array": "^1.2.0",
     "date-fns": "^2.0.0-alpha.1",
     "debug": "^2.6.8",
     "dexie": "^2.0.0-beta.11",
     "electron-compile": "^6.4.1",
     "electron-contextmenu-middleware": "^1.0.3",
     "electron-image-menu": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-window-state": "^4.1.1",
     "img-exif": "^0.2.0",
     "keytar": "^4.0.3",
@@ -68,7 +70,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.1",
+    "lint-staged": "^4.0.2",
     "prettier": "^1.5.3",
     "tslib": "^1.7.1",
     "tslint": "^5.4.3",
@@ -100,9 +102,7 @@
           }
         ]
       },
-      "electronWinstallerConfig": {
-        "name": ""
-      },
+      "electronWinstallerConfig": {},
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {

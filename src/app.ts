@@ -61,9 +61,9 @@ const parseAuthUrl = async (forwardedUrl: string) => {
   const authResponse = parseQueryString(query)
 
   if (authResponse.state !== appInfo.state) {
+    debug('App state:', appInfo.state)
+    debug('Auth state:', authResponse.state)
     console.error('Auth state mismatch')
-    debug('app state:' + appInfo.state)
-    debug('auth state:' + authResponse.state)
     throw new Error('Auth state mismatch')
   }
 
@@ -79,7 +79,9 @@ const parseAuthUrl = async (forwardedUrl: string) => {
     debug('token =>', accessToken)
     if (await verifyAccess(accessToken)) {
       await saveCode('access_token', accessToken)
-      await saveCode('refresh_token', refreshToken)
+
+      if (refreshToken) await saveCode('refresh_token', refreshToken)
+      else debug('no refresh token sent')
 
       mainWindow.goToMonux()
     } else {
@@ -100,7 +102,7 @@ const isSecondInstance = app.makeSingleInstance(async (argv, cwd) => {
   mainWindow.focus()
 
   if (process.platform === 'win32' && argv.length > 1) {
-    const authUrl = argv.find(function(param) {
+    const authUrl = argv.find(param => {
       return param.toLowerCase().startsWith('monux://')
     })
 

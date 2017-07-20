@@ -2,6 +2,7 @@
   "name": "Monux",
   "version": "0.9.3",
   "description": "Unoffical Monzo Client for Desktop",
+  "private": true,
   "main": "src/app.ts",
   "repository": "https://github.com/robjtede/monux",
   "author": "robjtede",
@@ -79,38 +80,18 @@
   "config": {
     "forge": {
       "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
+        "win32": ["zip"],
+        "darwin": ["zip"]
       },
       "electronPackagerConfig": {
         "icon": "monux",
         "asar": true,
         "protocols": [
           {
-            "schemes": [
-              "monux"
-            ],
+            "schemes": ["monux"],
             "name": "Monux"
           }
         ]
-      },
-      "electronWinstallerConfig": {},
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "",
-        "name": ""
-      },
-      "windowsStoreConfig": {
-        "packageName": ""
       }
     }
   }
